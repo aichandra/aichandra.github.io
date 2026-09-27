@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming soon</title>
+<meta name="description" content="A personal site is being built here.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚧</text></svg>">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    --bg:     #0c0e14;
+    --text:   #e6e9f0;
+    --muted:  #99a1b8;
+    --accent: #6ee7b7;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg:     #fbfbfd;
+      --text:   #161922;
+      --muted:  #5d6478;
+      --accent: #0f9d76;
+    }
+  }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  /* Soft glow behind the content */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 50%; left: 50%;
+    width: 640px; height: 640px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle,
+                color-mix(in srgb, var(--accent) 15%, transparent) 0%,
+                transparent 65%);
+    pointer-events: none;
+  }
+
+  main { position: relative; animation: rise .9s cubic-bezier(.22, 1, .36, 1) both; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+  }
+
+  h1 {
+    margin: 0 0 .35em;
+    font-size: clamp(2.2rem, 9vw, 3.4rem);
+    font-weight: 600;
+    letter-spacing: -.035em;
+  }
+  h1 .dot { color: var(--accent); }
+
+  p {
+    margin: 0;
+    font-size: clamp(.98rem, 2.6vw, 1.1rem);
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* Three pulsing dots */
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 34px;
+  }
+  .dots span {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  .dots span:nth-child(2) { animation-delay: .2s; }
+  .dots span:nth-child(3) { animation-delay: .4s; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: .25; transform: scale(.8); }
+    50%      { opacity: 1;   transform: scale(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+</style>
+</head>
+<body>
+  <main>
+    <h1>aichandra<span class="dot">.</span></h1>
+    <p>Something is being built here.</p>
+    <div class="dots" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </main>
+</body>
+</html>

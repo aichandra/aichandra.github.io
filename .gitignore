@@ -1,8 +1,10 @@
 .DS_Store
-node_modules/
 *.log
+node_modules/
 .vscode/
 .idea/
 
-# Work-in-progress site, deliberately not published
-_draft/
+Abhishek_pic.jpg
+CV_Abhishek_Chandra.pdf
+Supervision_pics/
+home.png
